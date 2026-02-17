@@ -1,195 +1,115 @@
-# DataForge CLI
+# 🚀 DataForge CLI | El Orquestador de Datos Futurista
 
-Un toolkit de consola para convertir datos de Excel a CSV y despues a SQL INSERT,
-pensado para equipos donde cada usuario trae archivos con estructuras distintas.
+<div align="center">
 
-Incluye menu interactivo estilo clasico con banner en azul oscuro, firma `BY DANNY MAAZ`
-y layout responsive para terminales anchas, medianas y compactas.
+![DataForge Banner](https://img.shields.io/badge/DATA-FORGE-007ACC?style=for-the-badge&logo=data-bricks&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge)
+![OS](https://img.shields.io/badge/OS-Windows%20%7C%20Linux%20%7C%20macOS-E91E63?style=for-the-badge)
 
-## Arranque rapido
+**DataForge CLI** es un toolkit de consola de alto rendimiento diseñado para la transformación fluida de datos. Convierte estructuras complejas de **Excel** a **CSV** optimizados y genera sentencias **SQL INSERT** profesionales en segundos.
 
-1) Instala dependencias:
+*Diseñado para la eficiencia. Construido para el futuro.*
 
+</div>
+
+---
+
+## 💎 Características Principales
+
+- **📦 Extracción Inteligente**: Detecta automáticamente encabezados y limpia datos basura en hojas de Excel.
+- **⚡ Perfiles Dinámicos**: Generación de SQL mediante perfiles `warehouse_clean` (para staging) o `generic`.
+- **🔍 Diagnóstico Profundo**: Herramientas integradas para inspeccionar estructuras y validar calidad de datos.
+- **🛠️ Versatilidad**: Soporte multiformato (`utf-8`, `latin-1`) y detección automática de delimitadores.
+- **🖥️ UI Minimalista**: Menú interactivo con diseño responsive para terminales de cualquier tamaño.
+
+---
+
+## 🚀 Arranque Rápido
+
+### 1. Preparar el Entorno
 ```bash
 pip install -r requirements.txt
 ```
 
-2) Abre el menu principal:
+### 2. Ejecutar la Terminal
+Elige tu método preferido según tu sistema:
 
-- Windows:
+- **Windows**: `run-tool.bat`
+- **Linux/macOS**: `sh run-tool.sh`
+- **Universal**: `python scripts/data_toolkit_cli.py`
 
-```bat
-run-tool.bat
-```
+### 3. Flujo Maestro
+1.  **Opción `1`**: Transforma tus hojas de Excel en archivos CSV limpios.
+2.  **Opción `2`**: Convierte esos CSV en potentes scripts SQL listos para producción.
 
-- Linux/macOS:
+---
 
-```bash
-sh run-tool.sh
-```
+## 📸 Capturas de Pantalla
 
-- Universal (cualquier SO):
+<div align="center">
 
-```bash
-python scripts/data_toolkit_cli.py
-```
-
-3) Flujo recomendado:
-
-- Opcion `1`: Excel -> CSV.
-- Opcion `2`: CSV -> SQL INSERT con perfil `warehouse_clean` o `generic`.
-
-## Como ingresar rutas (Excel, CSV y salidas)
-
-En el menu, el programa te pedira rutas en cada paso. Puedes usar:
-
-- Ruta absoluta (recomendada para usuarios nuevos).
-- Ruta relativa (desde la carpeta donde ejecutaste el proyecto).
-- Ruta pegada con arrastrar y soltar (archivo/carpeta hacia la terminal).
-
-Ejemplos:
-
-- Windows: `C:\Users\TuUsuario\Documents\datos\archivo.xlsx`
-- Linux: `/home/tuusuario/datos/archivo.xlsx`
-- macOS: `/Users/tuusuario/Documents/datos/archivo.xlsx`
-
-Notas:
-
-- Si la ruta tiene espacios, puedes pegarla con o sin comillas.
-- En opcion `1` pide ruta de Excel y luego carpeta de salida CSV.
-- En opcion `2` pide archivo CSV o carpeta con CSV y luego la salida SQL.
-
-## Capturas
-
-Vista menu en terminal ancha:
-
+### Menú en Terminal Ancha
 ![DataForge CLI wide](docs/screenshots/menu-wide.png)
 
-Vista menu en terminal compacta:
-
+### Menú en Terminal Compacta
 ![DataForge CLI compact](docs/screenshots/menu-compact.png)
 
-Vista de generacion SQL (`warehouse_clean`):
-
+### Generación SQL en Acción
 ![DataForge SQL run](docs/screenshots/sql-run.png)
 
-## Menu principal
+</div>
 
-1. `Extraer hojas Excel a CSV`
-2. `Generar SQL INSERT desde CSV (warehouse_clean/generic)`
-3. `Inspeccionar estructura de Excel`
-4. `Validar calidad de CSV`
-5. `Unir multiples CSV en uno`
-6. `Limpiar carpetas temporales`
-7. `Ver guia de uso`
-0. `Salir`
+---
 
-## Que hace especial este toolkit
+## 🛠️ Herramientas Disponibles
 
-- Detecta una fila de encabezado probable por hoja (no asume formato fijo).
-- Limpia filas/columnas vacias para exportes mas limpios.
-- Normaliza nombres de columnas para evitar roturas en SQL.
-- Detecta delimitador en CSV de forma automatica.
-- Soporta `utf-8` y `latin-1` para casos reales de archivos heredados.
+- `1` 📄 **Extraer Excel a CSV**: Desglose completo de libros de trabajo.
+- `2` 🗄️ **Generar SQL INSERT**: Automatización de scripts de carga.
+- `3` 🕵️ **Inspeccionar Excel**: Análisis de la estructura interna antes de procesar.
+- `4` ✅ **Validar CSV**: Control de calidad y detección de anomalías.
+- `5` 🔗 **Unir CSVs**: Consolidación de múltiples fuentes en un solo archivo.
+- `6` 🧹 **Limpieza**: Mantenimiento de carpetas temporales de salida.
 
-## Perfil SQL `warehouse_clean`
+---
 
-Este perfil implementa tu estrategia CLEAN INSERT para staging:
-
-- Mapeo de nombres CSV -> tablas `stg_*` por coincidencia exacta y parcial.
-- Filtro de columnas permitidas por tabla para mantener consistencia de carga.
-- Aliases de columnas frecuentes (`id -> appsheet_row_id`, `date -> fecha`, etc.).
-- Manejo de CSV vacios y archivos no mapeados con notas en la salida.
-- Salida por defecto en un solo archivo: `warehouse_seed.sql`.
-- `BEGIN/COMMIT` configurable (`--no-transaction` para desactivarlo).
-
-Ejemplo:
-
-```bash
-python scripts/csv_to_sql_insert.py --source-path "ruta/a/csvs" --profile warehouse_clean
-```
-
-## Perfil SQL `generic`
-
-Para cualquier proyecto no acoplado a staging fijo:
-
-- Toma columnas dinamicamente desde cada CSV.
-- Genera un `.sql` por archivo CSV.
-- Permite prefijo de tablas con `--table-prefix`.
-
-Ejemplo:
-
-```bash
-python scripts/csv_to_sql_insert.py --source-path "ruta/a/csvs" --profile generic --table-prefix stg_
-```
-
-## Carpetas de salida por defecto
-
-- CSV: `csv_exports_local`
-- SQL: `sql_exports_local`
-
-Ambas estan ignoradas en `.gitignore` para evitar subir archivos temporales.
-
-## Ejecutable local (opcional)
-
-```bash
-pip install -r requirements-dev.txt
-python scripts/build_executable.py
-```
-
-Se genera en `dist/`.
-
-## Compatibilidad
-
-- Windows: `run-tool.bat`
-- Linux/macOS: `sh run-tool.sh`
-- Universal: `python scripts/data_toolkit_cli.py`
-
-Ademas, la CI en `.github/workflows/python-ci.yml` esta en matriz multiplataforma
-(`ubuntu`, `windows`, `macos`) para validar scripts y comandos en los 3 sistemas.
-
-## Scripts disponibles
-
-- `scripts/data_toolkit_cli.py` -> menu interactivo principal.
-- `scripts/convert_excel_to_csv.py` -> conversion por parametros.
-- `scripts/csv_to_sql_insert.py` -> SQL por perfiles (`warehouse_clean`/`generic`).
-- `scripts/inspect_excel_structure.py` -> diagnostico de estructura Excel.
-- `scripts/validate_csv_folder.py` -> validacion de calidad CSV.
-- `scripts/merge_csv_files.py` -> union de CSV en un archivo.
-- `scripts/cleanup_temp_outputs.py` -> limpieza de carpetas temporales.
-- `scripts/build_executable.py` -> build de ejecutable con PyInstaller.
-
-## Estructura del proyecto
+## 🏗️ Arquitectura del Proyecto
 
 ```text
 .
-|-- .github/workflows/python-ci.yml
-|-- data/
-|   |-- input/.gitkeep
-|   `-- output/.gitkeep
-|-- scripts/
-|   |-- data_toolkit_cli.py
-|   |-- convert_excel_to_csv.py
-|   |-- csv_to_sql_insert.py
-|   |-- inspect_excel_structure.py
-|   |-- validate_csv_folder.py
-|   |-- merge_csv_files.py
-|   |-- cleanup_temp_outputs.py
-|   |-- build_executable.py
-|   `-- lib/
-|       |-- common.py
-|       |-- excel_csv.py
-|       |-- csv_sql.py
-|       |-- inspect_excel.py
-|       |-- validate_csv.py
-|       |-- merge_csv.py
-|       `-- cleanup.py
-|-- run-tool.bat
-|-- run-tool.sh
-|-- .env.example
-|-- .gitignore
-|-- requirements.txt
-|-- requirements-dev.txt
-|-- LICENSE
-`-- README.md
+|-- 📂 scripts/           # Motores de ejecución y lógica
+|   |-- 📂 lib/           # Librerías de procesamiento core
+|-- 📂 docs/              # Activos y documentación
+|-- 📂 data/              # Depósito de entrada/salida
+|-- 📄 run-tool.bat       # Lanzador Windows
+|-- 📄 run-tool.sh        # Lanzador Linux/macOS
+|-- 📄 requirements.txt   # Dependencias base
 ```
+
+---
+
+## 🌐 Compatibilidad y CI
+
+El toolkit está diseñado para ser agnóstico del sistema operativo. Contamos con integración continua (**GitHub Actions**) validada en:
+- ✅ **Ubuntu (Linux)**
+- ✅ **Windows**
+- ✅ **macOS**
+
+---
+
+<div align="center">
+
+### 👨‍💻 Creado Por: Danny Maaz
+
+[![GitHub](https://img.shields.io/badge/GitHub-dannymaaz-181717?style=for-the-badge&logo=github)](https://github.com/dannymaaz)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Danny_Maaz-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/danny-maaz-a566251b5/)
+
+#### ✨ ¿Te gusta el proyecto? ¡Apóyalo! ✨
+
+[![PayPal](https://img.shields.io/badge/Donar_vía_PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/Creativegt)
+
+---
+
+**© 2024 - Proyectos con Pasión**
+
+</div>
