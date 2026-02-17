@@ -110,6 +110,6 @@ El toolkit está diseñado para ser agnóstico del sistema operativo. Contamos c
 
 ---
 
-**© 2024 - Proyectos con Pasión**
+**© 2026 - Danny Maaz**
 
 </div>
