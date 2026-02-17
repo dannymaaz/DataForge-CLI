@@ -1,0 +1,32 @@
+# Python cache and env
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.venv/
+venv/
+
+# Tooling cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local env files
+.env
+
+# Generated output
+data/output/*.csv
+**/csv_exports_local/
+**/sql_exports_local/
+
+# Build artifacts
+build/
+dist/
+*.spec
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

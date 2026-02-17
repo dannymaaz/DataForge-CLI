@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="500" viewBox="0 0 1180 500">
+  <rect width="1180" height="500" fill="#0a1020"/>
+  <rect x="20" y="20" width="1140" height="460" fill="#0b1324" stroke="#1e40af" stroke-width="2" rx="8"/>
+  <text x="42" y="60" fill="#93c5fd" font-family="Consolas, 'Courier New', monospace" font-size="24">SQL Generation Preview</text>
+  <text x="42" y="98" fill="#22c55e" font-family="Consolas, 'Courier New', monospace" font-size="16">[OK] Perfil usado: warehouse_clean</text>
+  <text x="42" y="124" fill="#22c55e" font-family="Consolas, 'Courier New', monospace" font-size="16">[OK] SQL generado en: .../sql_exports_local/warehouse_seed.sql</text>
+  <text x="42" y="158" fill="#cbd5e1" font-family="Consolas, 'Courier New', monospace" font-size="16"> - terapia.csv -&gt; stg_terapias: 1937 filas convertidas</text>
+  <text x="42" y="182" fill="#cbd5e1" font-family="Consolas, 'Courier New', monospace" font-size="16"> - users.csv -&gt; stg_profesionales: 29 filas convertidas</text>
+  <text x="42" y="206" fill="#cbd5e1" font-family="Consolas, 'Courier New', monospace" font-size="16"> - viaticos.csv -&gt; stg_viaticos: 48 filas convertidas</text>
+  <text x="42" y="230" fill="#cbd5e1" font-family="Consolas, 'Courier New', monospace" font-size="16"> - consejeria.csv -&gt; stg_terapias: 31 filas convertidas</text>
+  <text x="42" y="264" fill="#f59e0b" font-family="Consolas, 'Courier New', monospace" font-size="16"> - NOTE: Ignorado sin mapeo: merged_all.csv</text>
+  <text x="42" y="288" fill="#f59e0b" font-family="Consolas, 'Courier New', monospace" font-size="16"> - NOTE: Ignorado sin mapeo: organizacioninventario.csv</text>
+
+  <text x="42" y="336" fill="#60a5fa" font-family="Consolas, 'Courier New', monospace" font-size="15">Command:</text>
+  <text x="42" y="360" fill="#e2e8f0" font-family="Consolas, 'Courier New', monospace" font-size="15">python scripts/csv_to_sql_insert.py --source-path "ruta/a/csvs" --profile warehouse_clean</text>
+
+  <text x="42" y="430" fill="#64748b" font-family="Consolas, 'Courier New', monospace" font-size="14">DataForge CLI - terminal output style</text>
+</svg>
